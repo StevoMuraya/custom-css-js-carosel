@@ -1,0 +1,271 @@
+:root {
+  --max-width: 1700px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.site-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.hero-section {
+  width: 100%;
+  height: 83vh;
+  overflow: hidden;
+}
+.slider-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  /* overflow: hidden; */
+  justify-content: center;
+}
+
+.slider-holder {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 1000ms ease-in-out;
+}
+.slider-holder.active {
+  opacity: 1;
+}
+.slider-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.slider-overlay {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #fff 10%, transparent);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.slider-buttons {
+  width: 95%;
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+}
+.slide {
+  width: 2.5em;
+  height: 2.5em;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0.4em #000a;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all 150ms linear;
+}
+.slide i {
+  color: black;
+}
+.slide:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+.hero-text-holder {
+  width: 80%;
+  position: relative;
+  z-index: 3;
+  color: rgba(0, 0, 0, 0);
+  transition: all 500ms ease-in-out;
+}
+.hero-text {
+  width: 40%;
+  margin: 0 1em;
+  transition: all 900ms ease-in-out;
+}
+.hero-text-holder.active {
+  color: rgba(0, 0, 0);
+}
+.hero-title {
+  width: 100%;
+  font-size: 2.5em;
+  /* color: #000; */
+  transition: all 250ms ease-in-out;
+  line-height: 1em;
+}
+.hero-desc {
+  width: 100%;
+  font-weight: 300;
+  margin-top: 1em;
+}
+.dots-holder {
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+  bottom: 13%;
+  display: flex;
+  justify-content: center;
+}
+.dot {
+  width: 1em;
+  height: 1em;
+  background-color: rgb(143, 143, 143);
+  box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.667);
+  margin: 0 0.3em;
+  border-radius: 50%;
+  border: 1px solid rgba(177, 177, 177, 0.8);
+  cursor: pointer;
+  transition: all 1000ms cubic-bezier(1, 0, 0, 0.98);
+}
+.dot.active {
+  width: 3em;
+  border-radius: 100vw;
+  background-color: rgb(255, 255, 255);
+}
+.dot:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+.moving-hero-circle {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  transition: all 250ms ease-in-out;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: -1;
+  animation: circleAnim1 12s ease-in-out infinite;
+}
+
+.moving-hero-circle.two {
+  width: 250px;
+  height: 250px;
+  top: 500%;
+  animation: circleAnim2 15s ease-in-out infinite 1000ms;
+}
+
+@keyframes circleAnim1 {
+  0% {
+    top: -100%;
+    left: -15%;
+    opacity: 0;
+  }
+  25% {
+    top: 20%;
+    left: 0%;
+    opacity: 1;
+  }
+  50% {
+    top: 85%;
+    left: 15%;
+  }
+  80% {
+    left: -5%;
+  }
+  100% {
+    top: -100%;
+    left: -15%;
+    opacity: 0;
+  }
+}
+
+@keyframes circleAnim2 {
+  0% {
+    top: 100%;
+    left: -15%;
+    opacity: 0;
+  }
+  25% {
+    top: -20%;
+    left: 0%;
+    opacity: 1;
+  }
+  50% {
+    top: -85%;
+    left: 15%;
+  }
+  80% {
+    left: -5%;
+  }
+  100% {
+    top: 100%;
+    left: -15%;
+    opacity: 0;
+  }
+}
+.moving-hero-circle::before {
+  content: "";
+  width: 80%;
+  height: 80%;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.call-btn-holder {
+  width: 100%;
+  display: flex;
+  margin: 1em 0 3em 0;
+}
+.call-btn-holder.services {
+  justify-content: center;
+  margin: 2em 0;
+}
+.services-page-card:hover .call-btn-holder.services .read-more-service-page {
+  background-color: rgb(253, 51, 51);
+  color: white;
+}
+.services-page-card:hover .call-btn-holder.services .read-more-service-page i {
+  color: white;
+}
+
+.call-to-action {
+  z-index: 5;
+  background-color: rgb(253, 51, 51);
+  color: white;
+  padding: 0.5em 2.5em;
+  max-height: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* ////////////////////////////////RESPONSIVE DESIGN//////////////////////////////// */
+
+@media screen and (max-width: 600px) {
+  .hero-text {
+    width: 80%;
+  }
+  .hero-title {
+    font-size: 2em;
+  }
+}
+@media screen and (max-width: 450px) {
+  .moving-about-circle {
+    width: 200px;
+    height: 200px;
+  }
+}
